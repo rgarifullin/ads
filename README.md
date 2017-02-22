@@ -6,4 +6,4 @@
 * Heapsort (incoming)
 
 ## Data Structures
-* BinaryHeap (incoming)
+* BinaryHeap
