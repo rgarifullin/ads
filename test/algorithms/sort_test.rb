@@ -8,7 +8,15 @@ describe Algorithms::Sort do
 
   let(:array) { Array.new(10) { rand(1..50) } }
 
-  it 'sorts array of integers by asc order' do
-    subject.mergesort(array).must_equal array.sort
+  describe '.mergesort' do
+    it 'sorts array' do
+      subject.mergesort(array).must_equal array.sort
+    end
+  end
+
+  describe '.heapsort' do
+    it 'sorts array' do
+      subject.heapsort(array).must_equal array.sort { |l, r| r <=> l }
+    end
   end
 end

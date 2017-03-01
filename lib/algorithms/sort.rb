@@ -1,3 +1,5 @@
+require_relative '../data_structures/binary_heap'
+
 module Algorithms
   module Sort
     def self.mergesort(ar)
@@ -18,6 +20,10 @@ module Algorithms
 
     def self.min_sort(left, right)
       left < right ? [left, right] : [right, left]
+    end
+
+    def self.heapsort(ar)
+      DataStructures::BinaryHeap.new(ar).sort
     end
   end
 end

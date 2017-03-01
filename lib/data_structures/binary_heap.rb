@@ -25,28 +25,29 @@ module DataStructures
       end
     end
 
+    # FIXME: is this method relevant (and correct)?
     def extract(entry)
       i = @heap.find_index(entry)
       extracted = @heap[i]
       @heap[i] = @heap.delete_at(@heap.size - 1)
-      heapify(i) # construct
+      heapify(i)
       extracted
     end
 
-    def max
+    def pop!
       if @heap.size == 1
-        extracted = root
+        extracted = pop
         @heap.clear
         return extracted
       end
 
-      extracted = root
+      extracted = pop
       @heap[0] = @heap.delete_at(@heap.size - 1)
       heapify(0)
       extracted
     end
 
-    def root
+    def pop
       @heap.first
     end
 
@@ -77,7 +78,7 @@ module DataStructures
     end
 
     def sort
-      Array.new(@heap.size) { max }
+      Array.new(@heap.size) { pop! }
     end
 
     private

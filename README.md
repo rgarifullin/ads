@@ -3,7 +3,8 @@
 ## Algorithms
 ### Sort
 * Mergesort
-* Heapsort (incoming)
+* Heapsort
 
 ## Data Structures
 * BinaryHeap
+* BinomialHeap (incoming)

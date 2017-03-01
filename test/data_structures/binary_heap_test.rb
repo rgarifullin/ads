@@ -30,9 +30,9 @@ describe DataStructures::BinaryHeap do
     DataStructures::BinaryHeap.new(array)
   end
 
-  describe '#root' do
+  describe '#pop' do
     it 'returns root element' do
-      subject.root.must_equal sample.first
+      subject.pop.must_equal sample.first
     end
   end
 
@@ -52,7 +52,7 @@ describe DataStructures::BinaryHeap do
       subject.insert(20)
 
       valid?(subject.inspect).must_equal true
-      subject.root.must_equal 20
+      subject.pop.must_equal 20
     end
   end
 
@@ -62,7 +62,7 @@ describe DataStructures::BinaryHeap do
 
       extracted.must_equal 18
       valid?(subject.inspect).must_equal true
-      subject.root.must_equal 15
+      subject.pop.must_equal 15
     end
   end
 
