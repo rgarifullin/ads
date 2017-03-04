@@ -51,28 +51,6 @@ module DataStructures
       @heap.first
     end
 
-    def heapify(i)
-      left = left_child_index(i)
-      right = right_child_index(i)
-
-      if @heap[left] && @heap[right] && (@compare.call(@heap[i], @heap[left]) ||
-                                         @compare.call(@heap[i], @heap[right]))
-        if @compare.call(@heap[right], @heap[left])
-          @heap[left], @heap[i] = @heap[i], @heap[left]
-          heapify(left)
-        else
-          @heap[right], @heap[i] = @heap[i], @heap[right]
-          heapify(right)
-        end
-      elsif @heap[left] && @compare.call(@heap[i], @heap[left])
-        @heap[left], @heap[i] = @heap[i], @heap[left]
-        heapify(left)
-      elsif @heap[right] && @compare.call(@heap[i], @heap[right])
-        @heap[right], @heap[i] = @heap[i], @heap[right]
-        heapify(right)
-      end
-    end
-
     def inspect
       @heap
     end
@@ -82,6 +60,25 @@ module DataStructures
     end
 
     private
+
+    def heapify(i)
+      left = left_child_index(i)
+      right = right_child_index(i)
+
+      if @heap[left] && @heap[right] && (@compare.call(@heap[i], @heap[left]) ||
+                                         @compare.call(@heap[i], @heap[right]))
+        swap(@compare.call(@heap[right], @heap[left]) ? left : right, i)
+      elsif @heap[left] && @compare.call(@heap[i], @heap[left])
+        swap(left, i)
+      elsif @heap[right] && @compare.call(@heap[i], @heap[right])
+        swap(right, i)
+      end
+    end
+
+    def swap(i, j)
+      @heap[i], @heap[j] = @heap[j], @heap[i]
+      heapify(i)
+    end
 
     def construct
       max_index = (@heap.size / 2) - 1

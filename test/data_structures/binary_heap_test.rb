@@ -36,6 +36,13 @@ describe DataStructures::BinaryHeap do
     end
   end
 
+  describe '#pop!' do
+    it 'extracts root element' do
+      subject.pop!.must_equal 18
+      subject.pop!.must_equal 15
+    end
+  end
+
   describe '#initialize' do
     it 'reorganizes entries' do
       valid?(subject.inspect).must_equal true
