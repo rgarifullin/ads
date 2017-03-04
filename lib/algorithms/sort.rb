@@ -1,15 +1,15 @@
 require_relative '../data_structures/binary_heap'
 
 module Algorithms
+  # Sort algorithms
   module Sort
     def self.mergesort(ar)
       size = ar.length
       return ar if size == 1
       return min_sort(ar.first, ar.last) if size == 2
 
-      mid = size / 2
-      left = mergesort(ar[0...mid])
-      right = mergesort(ar[mid..(size - 1)])
+      left = mergesort(ar[0...(size / 2)])
+      right = mergesort(ar[(size / 2)..(size - 1)])
 
       res = []
       while left&.any? && right&.any?
