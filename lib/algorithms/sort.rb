@@ -1,4 +1,5 @@
 require_relative '../data_structures/binary_heap'
+require_relative '../data_structures/binomial_heap'
 
 module Algorithms
   # Sort algorithms
@@ -22,8 +23,12 @@ module Algorithms
       left < right ? [left, right] : [right, left]
     end
 
-    def self.heapsort(ar)
+    def self.bin_heapsort(ar)
       DataStructures::BinaryHeap.new(ar).sort
+    end
+
+    def self.binom_heapsort(ar)
+      DataStructures::BinomialHeap.new(ar).sort
     end
   end
 end

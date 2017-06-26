@@ -6,9 +6,9 @@
 ## Algorithms
 ### Sort
 * Mergesort
-* Heapsort (via BinaryHeap)
+* Heapsort (Binary and binomial heaps)
 
 ## Data Structures
 * BinaryHeap
-* BinomialHeap (incoming)
+* BinomialHeap
 * FibonacciHeap (incoming)

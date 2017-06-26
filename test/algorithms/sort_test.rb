@@ -14,9 +14,15 @@ describe Algorithms::Sort do
     end
   end
 
-  describe '.heapsort' do
+  describe '.bin_heapsort' do
     it 'sorts array' do
-      subject.heapsort(array).must_equal array.sort { |l, r| r <=> l }
+      subject.bin_heapsort(array).must_equal array.sort { |l, r| r <=> l }
+    end
+  end
+
+  describe '.binom_heapsort' do
+    it 'sorts array' do
+      subject.binom_heapsort(array).map(&:value).must_equal array.sort
     end
   end
 end
